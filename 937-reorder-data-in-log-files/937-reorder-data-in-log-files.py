@@ -1,6 +1,7 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         
+        # 1. lambda
         letters, digits = [], []
         
         for log in logs:
@@ -13,4 +14,5 @@ class Solution:
         letters.sort(key=lambda x: (x.split()[1:], x.split()[0]))
         
         return letters + digits
+        
         
