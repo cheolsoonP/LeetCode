@@ -13,7 +13,7 @@ class Solution:
         #         words.append(word)
                 
 
-        # 
+        # 32ms
         words = [word for word in re.sub(r'[^\w]', ' ', paragraph)
                     .lower().split()
                         if word not in banned]
