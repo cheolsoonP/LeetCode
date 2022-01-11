@@ -18,3 +18,8 @@ class Solution:
             top.append(heapq.heappop(heap)[1])
             
         return top
+        
+#         # 2. simple
+#         # "zip, *" 기능 사용
+#         return list(zip(*collections.Counter(nums).most_common(k)))[0]
+    
