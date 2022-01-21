@@ -5,13 +5,15 @@ class MyHashMap:
         self.table = collections.defaultdict(ListNode)
 
     def put(self, key: int, value: int) -> None:
+        # 해시 값은 size의 modulo값으로 한다. 
         index = key % self.size
         
+        # 해당 키에 값이 없는 경우 넣고 끝
         if self.table[index].value is None:
             self.table[index] = ListNode(key, value)
-            return
+            return 
         
-        # index에 노드가 존재할 경우(충돌 발생)
+        # 해당 키에 값이 있는 경우 연결 체이닝으로 처리
         p = self.table[index]
         while p:
             if p.key == key:
@@ -20,12 +22,13 @@ class MyHashMap:
             if p.next is None:
                 break
             p = p.next
-        
         p.next = ListNode(key, value)
+
+        
 
     def get(self, key: int) -> int:
         index = key % self.size
-        
+        # 값이 없을 때
         if self.table[index].value is None:
             return -1
         
@@ -36,17 +39,18 @@ class MyHashMap:
             p = p.next
         return -1
     
+    
 
     def remove(self, key: int) -> None:
         index = key % self.size
-        
+        # 키 값이 없을때
         if self.table[index].value is None:
             return
         
         p = self.table[index]
         if p.key == key:
             self.table[index] = ListNode() if p.next is None else p.next
-            return
+            return 
         
         prev = p
         while p:
