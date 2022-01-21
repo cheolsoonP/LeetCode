@@ -1,6 +1,5 @@
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
-        
 #         # 1. 재귀로 풀기
         
 #         # 집합으로 정렬
