@@ -1,5 +1,18 @@
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        
+        dict = collections.defaultdict(int)
+        counts = 0
+        
+        
+        for char in stones:
+            dict[char] += 1
+            
+        for char in jewels:
+            counts += dict[char]
+                
+        return counts
+        
 #         ## 1. 해시테이블
 #         freqs = {}
 #         count = 0
@@ -40,7 +53,10 @@ class Solution:
 #         return count
 
 
-        ## 4. simple
-        return sum(s in jewels for s in stones)
+        # ## 4. simple
+        # return sum(s in jewels for s in stones)
+    
+    
+        
         
         
