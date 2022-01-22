@@ -1,7 +1,7 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # 순환을 판별하는 것
-        
+        # ***** 
         # 1. dfs
         graph = collections.defaultdict(list)
         for x, y in prerequisites:
