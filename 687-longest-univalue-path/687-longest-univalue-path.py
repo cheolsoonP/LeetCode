@@ -16,27 +16,26 @@ class Solution:
                 return 0
             
             
-            # 리프노드까지 가서 값을 리턴받음
             left = dfs(node.left)
             right = dfs(node.right)
             
-            
-            # 현재 노드가 자식 노드와 동일한 경우 거리 1 증가
+            # 자식이 있고 자식이 현재 값과 같다면 거리 +1
             if node.left and node.left.val == node.val:
                 left += 1
-            else: 
+            else:
                 left = 0
-            
             if node.right and node.right.val == node.val:
                 right += 1
             else:
                 right = 0
-            
-            # 왼쪽과 오른쪽 자식 노드 간 거리의 합 최댓값이 결과
+                
             self.result = max(self.result, left + right)
-            # 자식 노드 상태값 중 큰 값 리턴
+            
             return max(left, right)
-        
+            
+            
         dfs(root)
         
         return self.result
+                
+            
