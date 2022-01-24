@@ -26,44 +26,7 @@ class Solution:
         
         
         return self.result
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-#         # 1. 재귀, 중위 순회
- 
-#         if root.left:
-#             self.minDiffInBST(root.left)
-
-#         self.result = min(self.result, root.val - self.prev)
-#         self.prev = root.val
-        
-#         if root.right:
-#             self.minDiffInBST(root.right)
-
-            
-#         return self.result
-
+    
 
 #         # 2. 반복, 중위 순회
 #         prev = -sys.maxsize
