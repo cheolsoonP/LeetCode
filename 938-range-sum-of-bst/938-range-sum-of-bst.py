@@ -9,20 +9,20 @@ class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         
 
-        # DFS 재귀구조
-        if root is None:
-            return None
+#         # DFS 재귀구조
+#         if root is None:
+#             return None
 
-        if root.val < low:
-            self.rangeSumBST(root.right, low, high)
-        elif root.val > high:
-            self.rangeSumBST(root.left, low, high)
-        else:
-            self.result += root.val
-            self.rangeSumBST(root.right, low, high)
-            self.rangeSumBST(root.left, low, high)
+#         if root.val < low:
+#             self.rangeSumBST(root.right, low, high)
+#         elif root.val > high:
+#             self.rangeSumBST(root.left, low, high)
+#         else:
+#             self.result += root.val
+#             self.rangeSumBST(root.right, low, high)
+#             self.rangeSumBST(root.left, low, high)
 
-        return self.result
+#         return self.result
 
         
         
@@ -36,19 +36,19 @@ class Solution:
 #                 self.rangeSumBST(root.left, L, R) + \
 #                 self.rangeSumBST(root.right, L, R)
         
-#         # 2. DFS (재귀)가지치기로 성능향상
+        # 2. DFS (재귀)가지치기로 성능향상
         
-#         def dfs(node: TreeNode):
-#             if not node:
-#                 return 0
+        def dfs(node: TreeNode):
+            if not node:
+                return 0
             
-#             if node.val < low:
-#                 return dfs(node.right)
-#             elif node.val > high:
-#                 return dfs(node.left)
-#             return node.val + dfs(node.left) + dfs(node.right)
+            if node.val < low:
+                return dfs(node.right)
+            elif node.val > high:
+                return dfs(node.left)
+            return node.val + dfs(node.left) + dfs(node.right)
         
-#         return dfs(root)
+        return dfs(root)
     
 #         # 3. DFS 반복구조
         
