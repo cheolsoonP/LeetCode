@@ -8,7 +8,7 @@ class Solution:
     val: int = 0
     def bstToGst(self, root: TreeNode) -> TreeNode:
         
-        # 중위 순회 노드 값 누적
+        # 오른쪽부터 방문하는 중위순회
         if root:
             self.bstToGst(root.right)
             self.val += root.val
@@ -16,3 +16,4 @@ class Solution:
             self.bstToGst(root.left)
             
         return root
+    
