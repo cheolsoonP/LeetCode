@@ -19,12 +19,13 @@ class Solution:
             
         # 리프 노드를 삭제해 나간다. 루트를 남기기 위해서
         while n > 2:
-            n -= len(leaves)
-            new_leaves = []
-            for leaf in leaves:
-                neighbor = graph[leaf].pop()
-                graph[neighbor].remove(leaf)
+            n -= len(leaves) # 최종 길이 - 리프노드 수
+            new_leaves = [] 
+            for leaf in leaves: 
+                neighbor = graph[leaf].pop() 
+                graph[neighbor].remove(leaf) 
                 
+                # 리프 노드를 제거했을때 새로운 리프노드 찾음
                 if len(graph[neighbor]) == 1:
                     new_leaves.append(neighbor)
                     
