@@ -5,7 +5,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    result: int = 0
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        
+
+        # DFS 재귀구조
+        if root is None:
+            return None
+
+        if root.val < low:
+            self.rangeSumBST(root.right, low, high)
+        elif root.val > high:
+            self.rangeSumBST(root.left, low, high)
+        else:
+            self.result += root.val
+            self.rangeSumBST(root.right, low, high)
+            self.rangeSumBST(root.left, low, high)
+
+        return self.result
+
+        
+        
         # low 찾고, high 찾고 사이 값 더하기
         
 #         # 1. 모든 노드 찾고 low, high 사이 더하기 - 비효율적
@@ -48,19 +68,20 @@ class Solution:
 #         return sum
 
 
-        # 4. BFS 반복구조
+#         # 4. BFS 반복구조
         
-        stack, sum = collections.deque([root]), 0
         
-        while stack:
-            node = stack.popleft()
-            if node:
-                if node.val > low:
-                    stack.append(node.left)
-                if node.val < high:
-                    stack.append(node.right)
-                if low <= node.val <= high:
-                    sum += node.val
+#         stack, sum = collections.deque([root]), 0
+        
+#         while stack:
+#             node = stack.popleft()
+#             if node:
+#                 if node.val > low:
+#                     stack.append(node.left)
+#                 if node.val < high:
+#                     stack.append(node.right)
+#                 if low <= node.val <= high:
+#                     sum += node.val
                     
-        return sum
+#         return sum
     
