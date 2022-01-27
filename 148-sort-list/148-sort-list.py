@@ -13,20 +13,40 @@ class Solution:
 
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        if not (head and head.next):
-            return head
         
-        half, slow, fast = None, head, head
+#         # 1. merge sort
+#         if not (head and head.next):
+#             return head
         
-        while fast and fast.next:
-            half, slow, fast = slow, slow.next, fast.next.next
+#         half, slow, fast = None, head, head
         
-        half.next = None
+#         while fast and fast.next:
+#             half, slow, fast = slow, slow.next, fast.next.next
         
-        l1 = self.sortList(head)
-        l2 = self.sortList(slow)
+#         half.next = None
+        
+#         l1 = self.sortList(head)
+#         l2 = self.sortList(slow)
     
     
     
-        return self.mergeTwoLists(l1, l2)
+#         return self.mergeTwoLists(l1, l2)
     
+        # 2. inner library 
+        
+        p = head
+        lst: List = []
+        while p:
+            lst.append(p.val)
+            p = p.next
+        
+        lst.sort()
+
+        
+        p = head
+        
+        for i in range(len(lst)):
+            p.val = lst[i]
+            p = p.next
+        return head
+        
