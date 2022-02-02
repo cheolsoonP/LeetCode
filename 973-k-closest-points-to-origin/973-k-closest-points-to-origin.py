@@ -1,6 +1,6 @@
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        
+        # 파이썬은 최소 힙
         heap = []
         
         
