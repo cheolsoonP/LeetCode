@@ -30,7 +30,7 @@ class Solution:
         # 3. bisect 모듈
         for k, v in enumerate(numbers):
             expected = target - v
-            i = bisect.bisect_left(numbers[k + 1:], expected)
-            if i < len(numbers[k + 1:]) and numbers[i + k + 1] == expected:
-                return k + 1, i + k + 2
+            i = bisect.bisect_left(numbers, expected, k + 1)
+            if i < len(numbers) and numbers[i] == expected:
+                return k + 1, i + 1
         
