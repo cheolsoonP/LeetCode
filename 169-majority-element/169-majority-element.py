@@ -29,4 +29,5 @@ class Solution:
 
     
         # 3. simple 
+        # 222222111 -> 2
         return sorted(nums)[len(nums) // 2]
