@@ -1,6 +1,6 @@
 class Solution:
     
-    dp = collections.defaultdict(int)
+#    dp = collections.defaultdict(int)
     
     def fib(self, n: int) -> int:
 #         # 1. brute force
