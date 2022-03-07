@@ -3,7 +3,7 @@ class Solution:
         
         s = list(str(x))
         
-        if s == s[::-1]:
+        if list(str(x)) == list(str(x))[::-1]:
             return True
         
         return False
